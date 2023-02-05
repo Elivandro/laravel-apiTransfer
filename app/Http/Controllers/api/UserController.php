@@ -34,4 +34,15 @@ class UserController extends Controller
     {
         return $this->user->with('address', 'phones', 'wallet')->findOrFail($id)->toJson();
     }
+
+    public function store(Request $request)
+    {
+        $user = $this->user->create($request->all());
+
+        $user->address()->create($request->all());
+        $user->phones()->create($request->all());
+        $user->wallet()->create($request->all());
+
+        return $user->with('address', 'phones', 'wallet')->get()->toJson();
+    }
 }
