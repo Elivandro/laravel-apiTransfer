@@ -13,7 +13,7 @@ class Phone extends Model
 
     protected $fillable = [
         'ddd',
-        'phones',
+        'phone',
         'description',
         'user_id',
         'created_at',
