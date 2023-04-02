@@ -17,7 +17,7 @@ class Address extends Model
         'postal_code',
         'state',
         'country',
-        'description',
+        'reference',
         'created_at',
         'updated_at',
         'deleted_at'
