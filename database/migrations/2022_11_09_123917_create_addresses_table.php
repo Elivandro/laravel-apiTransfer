@@ -10,17 +10,14 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
             $table->string('street_name');
-            $table->integer('number');
+            $table->integer('street_number');
             $table->string('neighborhood');
             $table->string('postal_code');
             $table->string('state');
             $table->string('country');
             $table->string('description')->nullable();
-            $table->foreignId('user_id')
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
