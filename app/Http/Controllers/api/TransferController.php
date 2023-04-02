@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\api\RequestTransaction;
 use App\Models\api\Transfer;
 use App\Models\api\User;
 
@@ -31,4 +32,10 @@ class TransferController extends Controller
             'receivedFrom' => $receivedFromUser
         ]);
     }
+
+    public function store(RequestTransaction $transaction)
+    {
+        return $this->transfers->concludedTransfersBRL($transaction->validated());
+    }
+
 }
